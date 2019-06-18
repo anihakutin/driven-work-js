@@ -7,21 +7,20 @@ User can add/edit company, select or add: CEO, Problem, TechnologyBreakthrough
 
 What will your models and associations be and why? You will need a has_many and belongs_to relationship as well as a many to many relationship.
 
-Company 
-  	* Has_one CEO
+Company(name, description, year_founded, user_id, ceo_id)
   	* Has_many Problems
   	* Has_many TechnologyBreakthroughs
   	* Belongs_to User
-CEO
-  	* Has_many Companies
+    * Belongs to CEO
+CEO(name, age, net_worth)
+  	* has_many Companies
   	* Has_many TechnologyBreakthroughs through Companies
   	* Has_many Problems through Companies
-Problem
+Problem(name, description, year_solved, company_id)
   	* Belongs_to Company
-
-TechnologyBreakthrough
+TechnologyBreakthrough(name, description, year, company_id)
     * Belongs_to Company
-User
+User(name, password, admin?)
     * Has_many companies
 
 How will you implement a user submittable attribute on the join table of the many to many relationship?
