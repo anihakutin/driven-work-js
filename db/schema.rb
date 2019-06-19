@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2019_06_17_234728) do
 
   create_table "ceos", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
-    t.integer "net_worth"
+    t.integer "year_born"
+    t.decimal "net_worth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
