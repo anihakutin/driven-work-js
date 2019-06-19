@@ -1,0 +1,3 @@
+class CeosController < ApplicationController
+
+end

@@ -1,0 +1,3 @@
+class TechnologyBreakthroughsController < ApplicationController
+
+end

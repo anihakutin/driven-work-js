@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
     @auth = auth
   end
 
+  def destroy
+    session.clear
+  end
+
   private
     def auth
       request.env['omniauth.auth']
