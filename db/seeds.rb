@@ -7,17 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 DATA = {
   :user_keys =>
-    ["name", "password_digest", "admin"],
+    ["name", "email", "password_digest", "admin"],
   :users => [
-    ["Max Charles", "password", true],
-    ["Skai Jackson", "password", false],
-    ["Kaleo Elam", "password", false],
-    ["Megan Charpentier", "password", false],
-    ["Hayden Byerly", "password", false],
-    ["Tenzing Norgay Trainor", "password", false],
-    ["Davis Cleveland","password", false],
-    ["Cole Sand","password", true],
-    ["Quvenzhané Wallis", "password", true]
+    ["Max Charles", "#{rand(1000..5000)}@gmail.com" "password", true],
+    ["Skai Jackson", "#{rand(1000..5000)}@gmail.com" "password", false],
+    ["Kaleo Elam", "#{rand(1000..5000)}@gmail.com" "password", false],
+    ["Megan Charpentier", "#{rand(1000..5000)}@gmail.com" "password", false],
+    ["Hayden Byerly", "#{rand(1000..5000)}@gmail.com" "password", false],
+    ["Tenzing Norgay Trainor", "#{rand(1000..5000)}@gmail.com" "password", false],
+    ["Davis Cleveland","#{rand(1000..5000)}@gmail.com" "password", false],
+    ["Cole Sand","#{rand(1000..5000)}@gmail.com" "password", true],
+    ["Quvenzhané Wallis", "#{rand(1000..5000)}@gmail.com" "password", true]
   ],
   :company_keys =>
     ["name", "description", "year_founded", "user_id", "ceo_id"],
