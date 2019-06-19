@@ -27,8 +27,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-# Use dotenv to hide db creds
-
+# Use Omniauth for oauth2
+gem 'omniauth'
+# Use omniauth-github for github auth
+gem 'omniauth-github'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
