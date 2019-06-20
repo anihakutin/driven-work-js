@@ -1,3 +1,3 @@
-class TechnologyBreakthrough < ActiveRecord::Base
+class TechnologyBreakthrough < ApplicationRecordx
   belongs_to :company
 end
