@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many :companies
 
   def self.find_or_create_by_omniauth(auth_hash)

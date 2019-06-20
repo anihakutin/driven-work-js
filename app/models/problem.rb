@@ -1,3 +1,3 @@
-class Problem < ActiveRecord::Base
+class Problem < ApplicationRecord
   belongs_to :company
 end
