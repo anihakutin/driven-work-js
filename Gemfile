@@ -28,9 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use Omniauth for oauth2
-gem 'omniauth'
+gem 'omniauth', '~> 1.9'
 # Use omniauth-github for github auth
-gem 'omniauth-github'
+gem 'omniauth-github', '~> 1.3'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -54,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'thin', '~> 1.7', '>= 1.7.2'
 end
 
 
