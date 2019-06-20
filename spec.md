@@ -23,7 +23,7 @@ TechnologyBreakthrough
 User
   Methods
   * companies_submitted
-Routes
+Routes(done)
   * sessions
   * companies
     * technologyBreakthrouh/new, :id/edit
@@ -32,7 +32,7 @@ Routes
   * ceos
   * problems
   * technology_breakthroughs
-Controllers
+Controllers(done)
   * sessions_controller
   * users_controller
   * companies_controller
