@@ -1,4 +1,4 @@
-class Company < ActiveRecord::Base
+class Company < ApplicationRecord
   has_many :problems
   has_many :technology_breakthroughs
   belongs_to :user
@@ -20,5 +20,4 @@ class Company < ActiveRecord::Base
   def ceo_name
     self.ceo.name
   end
-
 end
