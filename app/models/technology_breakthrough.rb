@@ -1,4 +1,4 @@
-class TechnologyBreakthrough < ApplicationRecordx
+class TechnologyBreakthrough < ApplicationRecord
   belongs_to :company
 
   def company_name
