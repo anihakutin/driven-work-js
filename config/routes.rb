@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'companies#index'
 
   get '/users/login', to: 'users#new'
-  
+  get '/login', to: 'users#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+
   resources :sessions
   resources :users
   resources :ceos
