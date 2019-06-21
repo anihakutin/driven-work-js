@@ -1,0 +1,33 @@
+<h1>Login Or Create A New Account</h1>
+
+<h2>Login</h2>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password, "Password" %>
+  <%= f.password_field :password %><br>
+
+  <%= f.submit "Login"%>
+<% end %>
+
+<h2>Login with Github</h2>
+<a href="/auth/github">Login with github</a>
+
+<h2>Create a new account</h2>
+<%= form_for @user do |f| %>
+  <%= f.label :admin %>
+  <%= f.check_box :admin %><br>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password%><br>
+
+  <%= f.submit %>
+<% end %>
