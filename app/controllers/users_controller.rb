@@ -27,15 +27,41 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(params[:id])
+    if @user && @user == current_user
+      @user
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-
+    @user = User.find(params[:id])
+    if @user && @user == current_user
+      if @user.update(user_params)
+        redirect_to user_path(@user)
+      else
+        # add errors - fixme
+        redirect_to edit_user_path(@user)
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
-
+    @user = User.find(params[:id])
+    if @user && @user == current_user
+      if @user.destroy
+        # add msg - fixme
+        redirect_to root_path
+      else
+        # add errors - fixme
+        redirect_to edit_user_path(@user)
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   private
