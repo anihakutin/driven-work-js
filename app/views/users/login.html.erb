@@ -2,32 +2,35 @@
 
 <h2>Login</h2>
 
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+<div class="form-group">
 
-  <%= f.label :password, "Password" %>
-  <%= f.password_field :password %><br>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %><br>
 
-  <%= f.submit "Login"%>
-<% end %>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, class: "form-control"  %><br>
 
-<h2>Login with Github</h2>
-<a href="/auth/github">Login with github</a>
+    <%= f.submit "Login"%>
+  <% end %>
 
-<h2>Create a new account</h2>
-<%= form_for @user do |f| %>
-  <%= f.label :admin %>
-  <%= f.check_box :admin %><br>
+  <h2>Login with Github</h2>
+  <a href="/auth/github">Login with github</a>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+  <h2>Create a new account</h2>
+  <%= form_for @user do |f| %>
+    <%= f.label :admin %>
+    <%= f.check_box :admin %><br>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control"  %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password%><br>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control"  %><br>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %><br>
+
+    <%= f.submit %>
+  <% end %>
+</div>
