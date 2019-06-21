@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 DATA = {
   :user_keys =>
-    ["name", "email", "password_digest", "admin"],
+    ["name", "email", "password", "admin"],
   :users => [
     ["Max Charles", "#{rand(1000..5000)}@gmail.com", "password", true],
     ["Skai Jackson", "#{rand(1000..5000)}@gmail.com", "password", false],
