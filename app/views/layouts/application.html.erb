@@ -21,7 +21,7 @@
           </button>
         <a class="navbar-brand" href="<%= root_url %>">Home</a>
         <a class="navbar-brand" href="<%= new_user_path %>">Login or Sign Up </a>
-        <%= link_to "Log Out", logout_path, class: "navbar-brand" %>
+        <%= link_to "Log Out", logout_path, :method => :post, class: "navbar-brand" %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
