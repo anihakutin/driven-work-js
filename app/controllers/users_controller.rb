@@ -15,12 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    if user = User.find(params[:id])
-      if user && user == current_user
-        @user = User.find(params[:id])
-      else
-        redirect_to root_path
-      end
+    @user = User.find_by(id: params[:id])
+    if @user && @user == current_user
+
     else
       redirect_to root_path
     end
