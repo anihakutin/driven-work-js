@@ -1,1 +1,15 @@
-<h1>Hello <%= @user.name %>!</h1>
+<div class="container">
+  <div class="col-md-6">
+    <h2>Submitted Companies:</h2>
+      <ul>
+        <% @user.companies.each do |company| %>
+          <li><%= link_to company.name, company_path(company) %></li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>Hello, <strong><%= @user.name %>!</strong></h2>
+    <h4>User Level: <strong><%= "ADMIN" if @user.admin? %></strong></h4>
+    <p><%= button_to "Delete User", @user, :method => :delete %></p>
+  </div>
+</div>
