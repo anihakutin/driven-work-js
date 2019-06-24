@@ -10,6 +10,7 @@
   <div class="col-md-6">
     <h2>Hello, <strong><%= @user.name %>!</strong></h2>
     <h4>User Level: <strong><%= "ADMIN" if @user.admin? %></strong></h4>
+    <p><%= button_to "New Company",{controller: "companies", action: "new" }, :method => :get %></p>
     <p><%= button_to "Delete User", @user, :method => :delete %></p>
   </div>
 </div>
