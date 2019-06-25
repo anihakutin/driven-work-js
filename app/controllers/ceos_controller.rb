@@ -11,7 +11,8 @@ class CeosController < ApplicationController
   end
 
   def create
-
+    @ceo = Ceo.create(user_params) or render :new
+    redirect_to ceo_path(@ceo)
   end
 
   def show
@@ -19,14 +20,19 @@ class CeosController < ApplicationController
   end
 
   def edit
-
+    @ceo = Ceo.find_by(id: params[:id]) or render_404
   end
 
   def update
-
+    @ceo = Ceo.update(user_params) or render :edit
   end
 
   def destroy
 
   end
+
+  private
+    def user_params
+      params.require(:ceo).permit(:name, :year_born, :net_worth, :company_ids)
+    end
 end
