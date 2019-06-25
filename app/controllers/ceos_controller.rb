@@ -7,7 +7,7 @@ class CeosController < ApplicationController
   end
 
   def new
-
+    @ceo = Ceo.new
   end
 
   def create
