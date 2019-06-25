@@ -28,7 +28,10 @@ class CompaniesController < ApplicationController
   end
 
   def update
+    @company = current_user.companies.find_by(id: params[:id]) or render_404
+    @company.update(user_params)
 
+    redirect_to company_path(@company)
   end
 
   def destroy
