@@ -1,0 +1,8 @@
+<h4><%= @ceo.name %></h4>
+<p>Age: <%= @ceo.age %></p>
+<p>Net Worth: <%= @ceo.formatted_net_worth %></p>
+
+<p>Companies: <% @ceo.companies.map do |c| %>
+    <%= link_to c.name, company_path(c) %>
+  <% end %>
+</p>
