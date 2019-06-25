@@ -2,7 +2,9 @@ class Company < ApplicationRecord
   has_many :problems
   has_many :technology_breakthroughs
   belongs_to :user
-  belongs_to :ceo
+  belongs_to :ceo, optional: true
+
+  accepts_nested_attributes_for :problems, :technology_breakthroughs
 
   def technology_breakthroughs_count
     technology_breakthroughs.count
