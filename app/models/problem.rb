@@ -9,7 +9,7 @@ class Problem < ApplicationRecord
     self.solved? ? DateTime.now.year - self.year_solved : "Not Solved Yet"
   end
 
-  def solved?
-    self.year_solved != 0
+  def solved_status
+    self.year_solved != 0 ? "Yes" : "No"
   end
 end
