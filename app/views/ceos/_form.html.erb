@@ -1,0 +1,12 @@
+<%= form_for ceo do |f| %>
+  <%=  f.label :name %>
+  <%=  f.text_field :name, class: "form-control" %><br>
+
+  <%=  f.label :year_born %>
+  <%=  f.text_field :year_born, class: "form-control" %><br>
+
+  <%=  f.label :net_worth %>
+  <%=  f.text_field :net_worth, class: "form-control" %><br>
+
+  <%= f.submit %>
+<% end %>

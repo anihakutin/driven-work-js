@@ -1,16 +1,3 @@
-<br>
-<h4>Or Create a new CEO</h4>
-<%= for_for @ceo do |f| %>
-  <%=  f.label :name %>
-  <%=  f.text_field :name %><br>
-
-  <%=  f.label :year_born %>
-  <%=  f.text_field :year_born %><br>
-
-  <%=  f.label :net_worth %>
-  <%=  f.text_field :net_worth %><br>
-
-  <%= f.submit %>
-<% end %>
-<br>
+<h4>Create a new CEO</h4>
+  <%= render partial: 'form', locals: { ceo: @ceo } %>
 <br>
