@@ -8,5 +8,8 @@
   <%=  f.label :net_worth %>
   <%=  f.text_field :net_worth, class: "form-control" %><br>
 
+  <%= f.label :"Select from list of existing Companies:" %>
+  <%= f.collection_select :company_ids, Company.all, :id, :name %><br>
+
   <%= f.submit %>
 <% end %>
