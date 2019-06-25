@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :require_login
-  skip_before_action :require_login, only: [:index]
+  skip_before_action :require_login, only: [:index, :show]
 
   def index
     @companies = Company.all
@@ -20,7 +20,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = current_user.companies.find_by(id: params[:id]) or render_404
+    @company = Company.find_by(id: params[:id]) or render_404
   end
 
   def edit
