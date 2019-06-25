@@ -25,7 +25,7 @@ module ApplicationHelper
 
   def technology_breakthroughs_link(company)
     if company.technology_breakthroughs.empty?
-      link_to("Add TB", new_company_technology_breakthrough_path(company))
+      link_to("Add Technology Breakthrough", new_company_technology_breakthrough_path(company))
     else
        company.technology_breakthroughs_count
      end
@@ -33,7 +33,7 @@ module ApplicationHelper
 
   def problems_solved_link(company)
     if company.problems.empty?
-      link_to("Add TB", new_company_problem_path(company))
+      link_to("Add Problems", new_company_problem_path(company))
     else
        company.problems_count
      end
