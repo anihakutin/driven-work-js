@@ -1,0 +1,12 @@
+<h3>Name: <%= @company.name %></h3>
+<h4>Ceo: <%= ceo_name_link(@company) %></h4>
+
+<p><%= @company.description %></p>
+<p>Year Founded: <%= @company.year_founded.year %>, <%= @company.age %> years old </p>
+<br>
+<h4>Technology Breakthroughs: <%= technology_breakthroughs_link(@company) %></h4>
+<ol>
+  <% @company.technology_breakthroughs.each do |tb| %>
+    <li><%= link_to tb.name, company_technology_breakthrough_path(tb) %></li>
+  <% end %>
+</ol>
