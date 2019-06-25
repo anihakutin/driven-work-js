@@ -1,6 +1,9 @@
 class CeosController < ApplicationController
-  def index
+  before_action :require_login
+  skip_before_action :require_login, only: [:index, :show]
 
+  def index
+    @ceos = Ceo.all
   end
 
   def new
@@ -12,7 +15,7 @@ class CeosController < ApplicationController
   end
 
   def show
-
+    @ceo = Ceo.find_by(id: params[:id]) or render_404
   end
 
   def edit
