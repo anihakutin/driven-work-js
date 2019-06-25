@@ -10,21 +10,5 @@
 <% end %>
 
 <div class="form-group">
-  <%= form_for @company do |f| %>
-    <%= f.hidden_field :user_id %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description, class: "form-control" %>
-
-    <%= f.label :year_founded %>
-    <%= f.text_field :year_founded, class: "form-control" %>
-
-    <%= f.label :ceo, "Select a CEO"%><br>
-    <%= f.collection_select :ceo_id, Ceo.all, :id, :name, class: "form-control", :include_blank => true  %><br></br>
-
-    <%= f.submit %>
-  <% end %>
+  <%= render partial: 'form', locals: { company: @company } %>
 </div>
