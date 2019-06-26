@@ -13,10 +13,12 @@ class TechnologyBreakthroughsController < ApplicationController
 
   def create
     @technology_breakthrough = Technology_breakthrough.new(user_params)
+
     if @technology_breakthrough.save
-      redirect_to technology_breakthrough_path(@technology_breakthrough)
+
+      redirect_to company_technology_breakthrough_path(@technology_breakthrough)
     else
-      redirect_to new_technology_breakthrough_path
+      redirect_to new_company_technology_breakthrough_path
     end
   end
 
