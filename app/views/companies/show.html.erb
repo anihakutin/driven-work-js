@@ -7,7 +7,7 @@
 <h4>Technology Breakthroughs: <%= technology_breakthroughs_link(@company) %></h4>
 <ol>
   <% @company.technology_breakthroughs.each do |tb| %>
-    <li><%= link_to tb.name, company_technology_breakthrough_path(tb) %></li>
+    <li><%= link_to tb.name, company_technology_breakthrough_path(tb.company, tb) %></li>
   <% end %>
 </ol><br>
 
@@ -15,6 +15,6 @@
 <h4>Problems Solved: <%= @company.problems_solved %></h4>
 <ol>
   <% @company.problems.each do |p| %>
-    <li><%= link_to p.name, company_problem_path(p) %>, <strong>Solved?:</strong> <%= p.solved_status %></li>
+    <li><%= link_to p.name, company_problem_path(p.company, p) %>, <strong>Solved?:</strong> <%= p.solved_status %></li>
   <% end %>
 </ol><br>
