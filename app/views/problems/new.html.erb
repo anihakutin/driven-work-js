@@ -1,0 +1,14 @@
+<%= form_for @problem, url: company_problems_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %><br>
+
+  <%= f.label :year_solved %>
+  <%= f.text_field :year_solved, class: "form-control" %><br>
+
+  <%= f.hidden_field :company_id, class: "form-control" %>
+
+  <%= f.submit %>
+<% end %>
