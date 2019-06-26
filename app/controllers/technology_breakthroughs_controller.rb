@@ -35,7 +35,7 @@ class TechnologyBreakthroughsController < ApplicationController
     @technology_breakthrough = Technology_breakthrough.find_by(id: params[:id]) or render_404
     @technology_breakthrough.update(user_params)
 
-    redirect_to technology_breakthrough_path(@technology_breakthrough)
+    redirect_to company_technology_breakthrough_path(@technology_breakthrough)
   end
 
   def destroy
