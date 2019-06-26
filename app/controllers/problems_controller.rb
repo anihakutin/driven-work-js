@@ -14,25 +14,28 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new(user_params)
     if @problem.save
-      redirect_to problem_path(@problem)
+      redirect_to company_problem_path(@problem.company, @problem)
     else
       redirect_to new_problem_path
     end
   end
 
   def show
-    @problem = Problem.find_by(id: params[:id]) or render_404
+    company = Company.find_by(id: params[:company_id]) or render_404
+    @problem = company.problems.find_by(id: params[:id]) or render_404
   end
 
   def edit
-    @problem = Problem.find_by(id: params[:id]) or render_404
+    company = Company.find_by(id: params[:company_id]) or render_404
+    @problem = company.problems.find_by(id: params[:id]) or render_404
   end
 
   def update
-    @problem = Problem.find_by(id: params[:id]) or render_404
+    company = Company.find_by(id: params[:company_id]) or render_404
+    @problem = company.problems.find_by(id: params[:id]) or render_404
     @problem.update(user_params)
 
-    redirect_to problem_path(@problem)
+    redirect_to company_problem_path(@problem.company, @problem)
   end
 
   def destroy

@@ -3,7 +3,7 @@ class TechnologyBreakthroughsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @technology_breakthroughs = Technology_breakthrough.all
+    @technology_breakthroughs = TechnologyBreakthrough.all
   end
 
   def new
@@ -12,30 +12,31 @@ class TechnologyBreakthroughsController < ApplicationController
   end
 
   def create
-    @technology_breakthrough = Technology_breakthrough.new(user_params)
+    @technology_breakthrough = TechnologyBreakthrough.new(user_params)
 
     if @technology_breakthrough.save
-      redirect_to company_technology_breakthrough_path(@technology_breakthrough)
+      redirect_to company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough)
     else
       redirect_to new_company_technology_breakthrough_path
     end
   end
 
   def show
-    @technology_breakthrough = Technology_breakthrough.find_by(id: params[:id]) or render_404
-    redirect_to company_technology_breakthrough_path(@technology_breakthrough)
+    company = Company.find_by(id: params[:company_id]) or render_404
+    @technology_breakthrough = company.technology_breakthroughs.find_by(id: params[:id]) or render_404
   end
 
   def edit
-    @technology_breakthrough = Technology_breakthrough.find_by(id: params[:id]) or render_404
-    redirect_to company_technology_breakthrough_path(@technology_breakthrough)
+    company = Company.find_by(id: params[:company_id]) or render_404
+    @technology_breakthrough = company.technology_breakthroughs.find_by(id: params[:id]) or render_404
   end
 
   def update
-    @technology_breakthrough = Technology_breakthrough.find_by(id: params[:id]) or render_404
+    company = Company.find_by(id: params[:company_id]) or render_404
+    @technology_breakthrough = company.technology_breakthroughs.find_by(id: params[:id]) or render_404
     @technology_breakthrough.update(user_params)
 
-    redirect_to company_technology_breakthrough_path(@technology_breakthrough)
+    redirect_to company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough)
   end
 
   def destroy
