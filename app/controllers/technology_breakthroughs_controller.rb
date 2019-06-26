@@ -15,7 +15,6 @@ class TechnologyBreakthroughsController < ApplicationController
     @technology_breakthrough = Technology_breakthrough.new(user_params)
 
     if @technology_breakthrough.save
-
       redirect_to company_technology_breakthrough_path(@technology_breakthrough)
     else
       redirect_to new_company_technology_breakthrough_path
@@ -24,10 +23,12 @@ class TechnologyBreakthroughsController < ApplicationController
 
   def show
     @technology_breakthrough = Technology_breakthrough.find_by(id: params[:id]) or render_404
+    redirect_to company_technology_breakthrough_path(@technology_breakthrough)
   end
 
   def edit
     @technology_breakthrough = Technology_breakthrough.find_by(id: params[:id]) or render_404
+    redirect_to company_technology_breakthrough_path(@technology_breakthrough)
   end
 
   def update
