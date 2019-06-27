@@ -39,5 +39,11 @@ module ApplicationHelper
      end
   end
 
-
+  def display_errors(object)
+    if object.errors.any?
+      object.errors.full_messages.each do |msg|
+        content_tag(:div, content_tag(:li, msg ), class: "error_explanation")
+      end
+    end
+  end
 end
