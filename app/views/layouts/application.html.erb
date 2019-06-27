@@ -19,14 +19,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <div class="navbar-brand">
+             <strong><%= link_to "Hello, #{current_user.name}", user_path(current_user) if logged_in? %></strong>
+          </div>
         <a class="navbar-brand" href="<%= root_url %>">Home</a>
         <a class="navbar-brand" href="<%= new_user_path %>">Login or Sign Up </a>
         <%= link_to "Log Out", logout_path, :method => :post, class: "navbar-brand" %>
+
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
 
-          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
