@@ -1,2 +1,4 @@
 <h4>Create a new CEO</h4>
-  <%= render partial: 'form', locals: { ceo: @ceo } %>
+<%= display_errors(@ceo) %>
+
+<%= render partial: 'form', locals: { ceo: @ceo } %>
