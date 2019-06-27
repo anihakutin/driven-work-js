@@ -1,14 +1,1 @@
-<%= form_for @technology_breakthrough, url: company_technology_breakthroughs_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "form-control" %><br>
-
-  <%= f.label :description %>
-  <%= f.text_field :description, class: "form-control" %><br>
-
-  <%= f.label :year %>
-  <%= f.text_field :year, class: "form-control" %><br>
-
-  <%= f.hidden_field :company_id, class: "form-control" %>
-
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'form', locals: { technology_breakthrough: @technology_breakthrough, path: company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough) } %>
