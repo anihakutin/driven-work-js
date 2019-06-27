@@ -1,6 +1,10 @@
 class Problem < ApplicationRecord
   belongs_to :company
 
+  validates :name, :description, :year_solved, presence: true
+  validates :year_solved, numericality: { only_integer: true }
+  validates :year_solved, length: { is: 4 }
+
   def company_name
     self.company.name
   end

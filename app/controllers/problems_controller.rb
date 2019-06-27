@@ -16,7 +16,7 @@ class ProblemsController < ApplicationController
     if @problem.save
       redirect_to company_problem_path(@problem.company, @problem)
     else
-      redirect_to new_problem_path
+      render :new
     end
   end
 
