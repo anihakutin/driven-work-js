@@ -22,10 +22,10 @@ DATA = {
   :company_keys =>
     ["name", "description", "year_founded", "user_id", "ceo_id"],
   :companies => [
-    ["Tesla", "Eletric Vehicle Startup", "1-05-2007", 1, 1],
-    ["InVision App", "Collaborative Design Studio", "1-05-2011", 1, 2],
-    ["SpaceX", "Rocket Company", "1-05-2008", 2, 1],
-    ["Apple", "Technology Company", "1-05-1976", 3, 3]
+    ["Tesla", "Eletric Vehicle Startup", "2007", 1, 1],
+    ["InVision App", "Collaborative Design Studio", "2011", 1, 2],
+    ["SpaceX", "Rocket Company", "2008", 2, 1],
+    ["Apple", "Technology Company", "1976", 3, 3]
   ],
   :ceo_keys =>
     ["name", "year_born", "net_worth"],

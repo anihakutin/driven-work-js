@@ -19,8 +19,7 @@ class Company < ApplicationRecord
   end
 
   def age
-    age_in_days = DateTime.now.to_date - self.year_founded
-    years = age_in_days.to_i / 365
+    DateTime.now.year - self.year_founded
   end
 
   def ceo_name
