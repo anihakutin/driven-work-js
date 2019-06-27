@@ -1,6 +1,6 @@
 class TechnologyBreakthroughsController < ApplicationController
   before_action :require_login
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show, :new]
 
   def index
     @technology_breakthroughs = TechnologyBreakthrough.all
