@@ -11,8 +11,12 @@ class CeosController < ApplicationController
   end
 
   def create
-    @ceo = Ceo.create(user_params) or render :new
-    redirect_to ceo_path(@ceo)
+    @ceo = Ceo.new(user_params)
+    if @ceo.save
+      redirect_to ceo_path(@ceo)
+    else
+      render :new
+    end
   end
 
   def show
