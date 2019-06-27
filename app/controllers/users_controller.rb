@@ -1,10 +1,19 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:index, :show, :new, :create]
+
   def new
+    if logged_in?
+      flash[:alert] = "You are logged allready..."
+      redirect_to root_path
+    end
+
     @user = User.new
-    render 'users/login'
   end
 
   def create
+    redirect_to root_path if logged_in?
+
     user = User.create(user_params)
     if user.valid?
       session[:user_id] = user.id
@@ -16,47 +25,43 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    if @user && @user == current_user
-
-    else
-      redirect_to root_path
-    end
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id]) or render_404
     if @user && @user == current_user
       @user
     else
+      flash[:alert] = "You are not authorized to edit this page"
       redirect_to root_path
     end
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id]) or render_404
     if @user && @user == current_user
       if @user.update(user_params)
         redirect_to user_path(@user)
       else
-        # add errors - fixme
         redirect_to edit_user_path(@user)
       end
     else
+      flash[:alert] = "You are not authorized to edit this page"
       redirect_to root_path
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id]) or render_404
     if @user && @user == current_user
       if @user.destroy
-        # add msg - fixme
+        session.clear
         redirect_to root_path
       else
-        # add errors - fixme
         redirect_to edit_user_path(@user)
       end
     else
+      flash[:alert] = "You are not authorized to edit this page"
       redirect_to root_path
     end
   end
