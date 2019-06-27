@@ -6,10 +6,14 @@ class Problem < ApplicationRecord
   end
 
   def years_ago_solved
-    self.solved? ? DateTime.now.year - self.year_solved : "Not Solved Yet"
+    self.solved_status == "Solved" ? DateTime.now.year - self.year_solved : "Not Solved Yet"
   end
 
   def solved_status
-    self.year_solved != 0 ? "Yes" : "No"
+    self.year_solved != 0 ? "Solved" : "Still at it..."
+  end
+
+  def user
+    self.company.user
   end
 end
