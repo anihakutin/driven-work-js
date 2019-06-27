@@ -15,6 +15,6 @@
 <h4>Problems Solved: <%= @company.problems_solved %></h4>
 <ol>
   <% @company.problems.each do |p| %>
-    <li><%= link_to p.name, company_problem_path(p.company, p) %>, <strong>Solved?:</strong> <%= p.solved_status %></li>
+    <li><%= link_to p.name, company_problem_path(p.company, p) %> - <strong><%= p.solved_status %></strong></li>
   <% end %>
 </ol><br>
