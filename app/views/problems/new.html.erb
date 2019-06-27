@@ -1,1 +1,2 @@
-<%= render partial: 'form', locals: { problem: @problem, path: new_company_problem_path(@problem.company)} %>
+<%= display_errors(@problem) %>
+<%= render partial: 'form', locals: { problem: @problem, path: company_problems_path(@problem.company)} %>
