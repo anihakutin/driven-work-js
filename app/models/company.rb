@@ -26,4 +26,10 @@ class Company < ApplicationRecord
   def ceo_name
     self.ceo.name
   end
+
+  def user_name
+    return "N/A" if self.user.nil?
+
+    self.user.name
+  end
 end
