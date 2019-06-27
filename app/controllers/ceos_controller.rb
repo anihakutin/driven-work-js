@@ -28,7 +28,7 @@ class CeosController < ApplicationController
   end
 
   def destroy
-
+    # use #user_admin to authenticate for delete action
   end
 
   private
