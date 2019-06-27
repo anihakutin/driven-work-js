@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
-      @company = current_user.companies.build
+    @company = current_user.companies.build
   end
 
   def create
@@ -24,11 +24,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = current_user.companies.find_by(id: params[:id]) or render_404
+    @company = Company.find_by(id: params[:id]) or render_404
   end
 
   def update
-    @company = current_user.companies.find_by(id: params[:id]) or render_404
+    @company = Company.find_by(id: params[:id]) or render_404
     @company.update(user_params)
 
     redirect_to company_path(@company)
