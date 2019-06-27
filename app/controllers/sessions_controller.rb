@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
   def create
     if auth.present?
-      user = User.find_or_create_by_omniauth(auth["info"])
-      if user.valid?
-        session[:user_id] = user.id
-        redirect_to user_path(user)
+      @user = User.find_or_create_by_omniauth(auth["info"])
+      if @user.valid?
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
       else
         redirect_to root_path
       end
