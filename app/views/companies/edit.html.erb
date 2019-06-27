@@ -1,3 +1,12 @@
 <h2>Edit <%= @company.name %></h2>
+<% if @company.errors.any? %>
+  <div class="error_explanation">
+    <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= render partial: 'form', locals: { company: @company } %>
