@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require "base64"
   has_secure_password
   has_many :companies
 
@@ -7,6 +8,7 @@ class User < ApplicationRecord
     self.where(email: auth_hash["email"]).first_or_create do |user|
       user.email = auth_hash["email"]
       user.name = auth_hash["name"]
+      user.password = "passWord" # fixme
     end
   end
 end
