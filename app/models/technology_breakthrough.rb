@@ -5,11 +5,11 @@ class TechnologyBreakthrough < ApplicationRecord
     self.company.name
   end
 
-  def years_ago_solved
-    self.solved? ? DateTime.now.year - self.year : "Not Solved Yet"
+  def years_since
+    DateTime.now.year - self.year
   end
 
-  def solved?
-    self.year != 0
+  def user
+    self.company.user
   end
 end
