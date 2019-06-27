@@ -16,4 +16,10 @@ class Problem < ApplicationRecord
   def user
     self.company.user
   end
+
+  def user_name
+    return "N/A" if self.user.nil?
+
+    self.company.user.name
+  end
 end
