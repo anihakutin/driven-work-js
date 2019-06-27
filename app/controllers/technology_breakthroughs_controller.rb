@@ -17,7 +17,7 @@ class TechnologyBreakthroughsController < ApplicationController
     if @technology_breakthrough.save
       redirect_to company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough)
     else
-      redirect_to new_company_technology_breakthrough_path
+      render :new
     end
   end
 

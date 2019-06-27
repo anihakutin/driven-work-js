@@ -1,1 +1,2 @@
-<%= render partial: 'form', locals: { technology_breakthrough: @technology_breakthrough, path: new_company_technology_breakthrough_path(@technology_breakthrough.company) } %>
+<%= display_errors(@technology_breakthrough) %>
+<%= render partial: 'form', locals: { technology_breakthrough: @technology_breakthrough, path: company_technology_breakthroughs_path(@technology_breakthrough.company) } %>
