@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def new
     if logged_in?
-      flash[:alert] = "You are logged allready..."
       redirect_to root_path
     end
 
@@ -30,6 +29,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id]) or render_404
     if @user && @user == current_user
+      flash[:alert].clear
       @user
     else
       flash[:alert] = "You are not authorized to edit this page"
