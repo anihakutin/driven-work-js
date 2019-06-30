@@ -2,36 +2,35 @@
 <%= display_errors(@user) %>
 
 <h2>Login</h2>
+  <div class="form-group">
 
-<div class="form-group">
+    <%= form_for :sessions, url: "/sessions" do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %><br>
 
-  <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control" %><br>
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password, class: "form-control"  %><br>
 
-    <%= f.label :password, "Password" %>
-    <%= f.password_field :password, class: "form-control"  %><br>
+      <%= f.submit "Login"%>
+    <% end %>
 
-    <%= f.submit "Login"%>
-  <% end %>
+    <h2>Login with Github</h2>
+    <a href="/auth/github">Login with github</a>
 
-  <h2>Login with Github</h2>
-  <a href="/auth/github">Login with github</a>
+    <h2>Create a new account</h2>
+    <%= form_for @user do |f| %>
+      <%= f.label :admin %>
+      <%= f.check_box :admin %><br>
 
-  <h2>Create a new account</h2>
-  <%= form_for @user do |f| %>
-    <%= f.label :admin %>
-    <%= f.check_box :admin %><br>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control"  %><br>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control"  %><br>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control"  %><br>
 
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control"  %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %><br>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %><br>
-
-    <%= f.submit %>
-  <% end %>
+      <%= f.submit %>
+    <% end %>
 </div>

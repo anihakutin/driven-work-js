@@ -14,12 +14,12 @@ class UsersController < ApplicationController
   def create
     redirect_to root_path if logged_in?
 
-    user = User.create(user_params)
-    if user.valid?
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
-      redirect_to new_user_path
+      render :new
     end
   end
 
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         redirect_to user_path(@user)
       else
-        redirect_to edit_user_path(@user)
+        render :edit
       end
     else
       flash[:alert] = "You are not authorized to edit this page"
