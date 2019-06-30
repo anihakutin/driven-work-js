@@ -9,8 +9,8 @@
   </div>
   <div class="col-md-6">
     <h2>Hello, <strong><%= @user.name %>!</strong></h2>
-    <h4>User Level: <strong><%= "ADMIN" if @user.admin? %></strong></h4>
-    <p><%= link_to "Edit Profile", edit_user_path %></p>
-    <p><%= button_to "Delete Profile", @user, :method => :delete %></p>
+    <h4>User Level: <strong><%= current_user_level(@user) %></strong></h4>
+    <p><%= current_user_edit_link(@user) %></p>
+    <p><%= current_user_delete_link(@user) %></p>
   </div>
 </div>
