@@ -31,8 +31,12 @@ class Company < ApplicationRecord
   end
 
   def user_name
-    return "N/A" if self.user.nil?
+    return "N/A" if !has_author?
 
     self.user.name
+  end
+
+  def has_author?
+    !self.user.nil?
   end
 end

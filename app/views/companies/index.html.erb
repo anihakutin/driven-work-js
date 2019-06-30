@@ -3,7 +3,6 @@
 <ol>
   <% @companies.each do |company| %>
     <li><%= link_to company.name, company %> - Major Breakthroughs: <%= company.technology_breakthroughs_count %></li>
-    <p>by <%= company.user_name %></p>
-     <!-- #  link_to company.user_name, company.user create helper -->
+    <p>by <%= author_link(company) %></p>
   <% end %>
 </ol>
