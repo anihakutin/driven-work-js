@@ -6,17 +6,16 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        redirect_to root_path
+        render :"users/new"
       end
     else
-      user = User.find_by(email: user_params[:email])
-      if user && user.authenticate(user_params[:password])
-        session[:user_id] = user.id
-        @user = current_user
+      @user = User.find_by(email: user_params[:email])
+      if @user && @user.authenticate(user_params[:password])
+        session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        flash[:alert] = "Login Information Incorrect"
-        redirect_to root_path
+        flash[:alert] = "Login Information Is Incorrect"
+        redirect_to new_user_path
       end
     end
   end
@@ -32,6 +31,6 @@ class SessionsController < ApplicationController
     end
 
     def user_params
-      params.require(:session).permit(:email, :password)
+      params.require(:sessions).permit(:email, :password)
     end
 end
