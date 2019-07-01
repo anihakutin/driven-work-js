@@ -1,10 +1,10 @@
 Company
-  Methods
+  Methods(Done)
 	* technology_breakthroughs, Count
   * problems_solved
   * age
   * ceo_name
-CEO
+CEO(Done)
 	Methods
   * technology_breakthroughs, Count
   * problems_solved
@@ -12,17 +12,17 @@ CEO
   * formatted_net_worth
   * count_of_companies
   * company_names
-Problem
+Problem(Done)
   Methods
 	* company_name
   * years_ago_solved
-TechnologyBreakthrough
+TechnologyBreakthrough(Done)
   Methods
 	* company_name
   * years_ago_solved
 User
   Methods
-  * companies_submitted
+  *
 Routes(done)
   * sessions
   * companies
@@ -41,3 +41,15 @@ Controllers(done)
   * technology_breakthroughs_controller
 
 Omniauth
+
+Items to complete
+  * redirect from login page if logged in
+  * Allow users to edit their own profile, button etc
+  * any logged in user can edit everything but users
+  * only admins can delete posts
+  * add edit button to all show pages
+  * add delete button to all show pages
+  * move new company button to top menu bar
+  * move user profile to application layout, exclude login page
+  * fix company year founded to only require year, fix bug
+  * add validations to user model and basic validations to all models

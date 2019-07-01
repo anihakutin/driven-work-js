@@ -23,6 +23,7 @@
              <strong><%= link_to "Hello, #{current_user.name}", user_path(current_user) if logged_in? %></strong>
           </div>
         <a class="navbar-brand" href="<%= root_url %>">Home</a>
+        <%= link_to "View Ceo's", ceos_path, class: "navbar-brand" %>
         <%= link_to "Add Company", new_company_path, class: "navbar-brand" %>
         <a class="navbar-brand" href="<%= new_user_path %>">Login or Sign Up </a>
         <%= link_to "Log Out", logout_path, :method => :post, class: "navbar-brand" %>
