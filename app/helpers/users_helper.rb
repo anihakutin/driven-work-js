@@ -1,8 +1,8 @@
 module UsersHelper
   def current_user_level(user)
-    "ADMIN" if user.admin?
+    return "ADMIN" if user.admin?
 
-    "Just Another Human..."
+    return "Just Another Human..."
   end
 
   def current_user_edit_link(user)

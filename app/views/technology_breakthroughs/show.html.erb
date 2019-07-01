@@ -1,5 +1,4 @@
-<h1><%= @technology_breakthrough.name %></h1>
+<h3><%= @technology_breakthrough.name %></h3>
 <h4>Company: <%= link_to @technology_breakthrough.company_name, @technology_breakthrough.company %> - <%= link_to "Edit Technology Breakthrough", edit_company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough) %></h4>
-<h4>Description: <%= @technology_breakthrough.description %></h4>
-<h4>Introduced: <%= pluralize(@technology_breakthrough.years_since, 'Year') %> ago</h4>
-<p>Submitted by: <%= link_to @technology_breakthrough.user.name, @technology_breakthrough.user  %> </p>
+<p>Description: <%= @technology_breakthrough.description %></p>
+<p>Introduced: <%= pluralize(@technology_breakthrough.years_since, 'Year') %> ago</p>
