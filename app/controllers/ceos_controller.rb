@@ -32,7 +32,16 @@ class CeosController < ApplicationController
   end
 
   def destroy
-    # use #user_admin to authenticate for delete action
+    if current_user.admin?
+      ceo = Ceo.find_by(id: params[:id]) or render_404
+      ceo.destroy
+
+      flash[:alert] = "Ceo successfully deleted."
+      redirect_to root_path
+    else
+      flash[:alert] = "Only an admin can delete posts."
+      redirect_to ceo_path(ceo)
+    end
   end
 
   private

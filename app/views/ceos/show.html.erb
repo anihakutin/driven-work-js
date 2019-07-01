@@ -1,4 +1,4 @@
-<h4><%= @ceo.name %></h4>
+<h3><%= @ceo.name %> - <%= link_to "Edit Ceo", edit_ceo_path(@ceo) %></h3>
 <p>Age: <%= @ceo.age %></p>
 <p>Net Worth: <%= @ceo.formatted_net_worth %></p>
 
@@ -6,3 +6,4 @@
     <%= link_to c.name, company_path(c) %>
   <% end %>
 </p>
+<p> <%= admin_delete_ceo %> </p>
