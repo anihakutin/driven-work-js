@@ -1,5 +1,5 @@
 <h1>Companies</h1>
-
+<p><%= display_errors(@companies) %></p>
 <ol>
   <% @companies.each do |company| %>
     <li><%= link_to company.name, company %> - Major Breakthroughs: <%= company.technology_breakthroughs_count %></li>
