@@ -21,7 +21,7 @@ module ApplicationHelper
     errors = []
     errors << flash[:alert] if flash.any?
 
-    if object.errors.any?
+    if object.try(:errors) && object.errors.any? # fixme
       object.errors.full_messages.each do |msg|
         errors << " #{msg}"
       end
