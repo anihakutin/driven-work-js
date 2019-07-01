@@ -4,4 +4,10 @@ module CompaniesHelper
 
     company.user_name
   end
+
+  def admin_delete_link
+    if logged_in? && current_user.admin?
+      button_to("Delete Company", :company, :method => :delete)
+    end
+  end
 end

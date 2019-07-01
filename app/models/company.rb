@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
-  has_many :problems
-  has_many :technology_breakthroughs
+  has_many :problems, :dependent => :delete_all
+  has_many :technology_breakthroughs, :dependent => :delete_all
   belongs_to :user
   belongs_to :ceo, optional: true
 

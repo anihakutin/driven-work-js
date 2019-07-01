@@ -35,7 +35,16 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
+    if current_user.admin?
+      company = Company.find_by(id: params[:id]) or render_404
+      company.destroy
 
+      flash[:alert] = "Company successfully deleted."
+      redirect_to root_path
+    else
+      flash[:alert] = "Only an admin can delete posts."
+      redirect_to company_path(company)
+    end
   end
 
   private
