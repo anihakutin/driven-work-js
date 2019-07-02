@@ -1,7 +1,7 @@
 <h1>Problems, let's see who solved 'em...!</h1>
 <br>
 <% @problems.each do |problem| %>
-  <h3> - <%= link_to problem.name, company_problem_path(problem.company, problem.id) %></h3>
+  <h3><%= link_to problem.name, company_problem_path(problem.company, problem.id) %></h3>
   <p>Company: <%= link_to problem.company_name, problem.company %></p>
   <p>Status: <strong><%= problem.solved_status %></strong></p>
   <p>Years ago solved: <strong><%= problem.years_ago_solved %></strong></p>
