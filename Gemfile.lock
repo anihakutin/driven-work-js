@@ -279,6 +279,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   coffee-rails (~> 4.2)
+  dotenv
   dotenv-rails
   figaro
   jbuilder (~> 2.5)
