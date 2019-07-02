@@ -1,4 +1,5 @@
 <h3><%= @problem.name %></h3>
 <h4>Company: <%= link_to @problem.company_name, @problem.company %> - <%= link_to "Edit Problem", edit_company_problem_path(@problem.company, @problem) %></h4>
+<h4>Solution: <%= @problem.description %></h4>
 <p>Status: <%= @problem.solved_status %></p>
 <p>Years ago solved: <%= @problem.years_ago_solved %></p>

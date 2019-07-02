@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :technology_breakthroughs
   end
 
+  get '/problems', to: 'problems#index'
+  get '/technology_breakthroughs', to: 'technology_breakthroughs#index'
+  
   get '/auth/github/callback', to: 'sessions#create'
 
 end
