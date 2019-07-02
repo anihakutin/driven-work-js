@@ -5,6 +5,7 @@
 <p>Year Founded: <%= @company.year_founded %>, <%= @company.age %> years old </p><br>
 
 <h4>Technology Breakthroughs: <%= technology_breakthroughs_link(@company) %></h4>
+<p><%= link_to("Add Technology Breakthrough", new_company_technology_breakthrough_path(@company)) %></p>
 <ol>
   <% @company.technology_breakthroughs.each do |tb| %>
     <li><%= link_to tb.name, company_technology_breakthrough_path(tb.company, tb) %></li>
@@ -13,6 +14,7 @@
 
 <h4>Problems: <%= problems_solved_link(@company) %></h4>
 <h4>Problems Solved: <%= @company.problems_solved %></h4>
+<p><%= link_to("Add Problem", new_company_problem_path(@company)) %></p>
 
 <ol>
   <% @company.problems.each do |p| %>
