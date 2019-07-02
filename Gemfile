@@ -37,7 +37,7 @@ gem 'omniauth', '~> 1.9'
 gem 'omniauth-github', '~> 1.3'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -59,6 +59,12 @@ group :development do
   gem 'pry'
   gem 'rspec-rails'
   gem 'thin', '~> 1.7', '>= 1.7.2'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger', '>= 0.1.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
 end
 
 

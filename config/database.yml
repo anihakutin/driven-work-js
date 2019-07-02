@@ -81,5 +81,7 @@ test:
 production:
   <<: *default
   database: driven-work_production
-  username: driven-work
+  username: heshiebee
   password: <%= ENV['DRIVEN-WORK_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DRIVEN-WORK_DATABASE_HOST'] %>
+  port: <%= ENV['DRIVEN-WORK_DATABASE_PORT'] %>
