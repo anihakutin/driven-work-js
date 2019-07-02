@@ -1,13 +1,17 @@
 class CompaniesController < ApplicationController
   before_action :require_login
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show, :new]
 
   def index
     @companies = Company.all
   end
 
   def new
-    @company = current_user.companies.build
+    if logged_in?
+      @company = current_user.companies.build
+    else
+      redirect_to new_user_path
+    end
   end
 
   def create
