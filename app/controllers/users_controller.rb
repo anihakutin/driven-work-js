@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id]) or render_404
     if @user && @user == current_user
-      flash[:alert].clear
+      flash[:alert].clear if flash[:alert]
       @user
     else
       flash[:alert] = "You are not authorized to edit this page"
