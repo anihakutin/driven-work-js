@@ -42,7 +42,7 @@ role :db,  %w{deploy_user@ec2-3-16-149-104.us-east-2.compute.amazonaws.com}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(/home/heshie/.ssh/ec2-key-pair.pem),
+   keys: %w(/home/heshie/.ssh/ec2-key-pair),
    forward_agent: false,
    auth_methods: %w(publickey password)
  }
