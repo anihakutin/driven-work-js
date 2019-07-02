@@ -1,1 +1,8 @@
-<h1>Technology Breakthroughs Index</h1>
+<h1>Technology Breakthroughs</h1>
+<br>
+<% @technology_breakthroughs.each do |tb| %>
+  <h3><%= link_to tb.name, company_technology_breakthrough_path(tb.company, tb.id) %></h3>
+  <p>Company: <%= link_to tb.company_name, tb.company %></p>
+  <p>Years ago solved: <strong><%= tb.years_since %></strong></p>
+  <br>
+<% end %>
