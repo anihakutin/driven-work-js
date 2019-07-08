@@ -14,7 +14,7 @@ class Problem < ApplicationRecord
   end
 
   def solved_status
-    self.year_solved != 0 ? "Solved" : "Still at it..."
+    self.class.solved.include?(self) ? "Solved" : "Still at it..."
   end
 
   def user
@@ -26,4 +26,6 @@ class Problem < ApplicationRecord
 
     self.company.user.name
   end
+
+  scope :solved, -> { where('year_solved != ?', 0) }
 end

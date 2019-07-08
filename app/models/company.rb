@@ -15,11 +15,11 @@ class Company < ApplicationRecord
   end
 
   def problems_solved
-    problems.where('year_solved != ?', 0).count
+    self.problems.solved.size
   end
 
   def problems_count
-    problems.count
+    self.problems.size
   end
 
   def age
