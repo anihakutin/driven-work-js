@@ -3,7 +3,11 @@ class ProblemsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @problems = Problem.all
+    if params[:company_id]
+      @problems = Problem.where(company_id: params[:company_id])
+    else
+      @problems = Problem.all
+    end
   end
 
   def new

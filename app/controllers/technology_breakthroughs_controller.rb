@@ -3,8 +3,11 @@ class TechnologyBreakthroughsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show, :new]
 
   def index
-    # check if routes are nested
-    @technology_breakthroughs = TechnologyBreakthrough.all
+    if params[:company_id]
+      @technology_breakthroughs = TechnologyBreakthrough.where(company_id: params[:company_id])
+    else
+      @technology_breakthroughs = TechnologyBreakthrough.all
+    end
   end
 
   def new
