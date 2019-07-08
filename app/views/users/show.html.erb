@@ -6,6 +6,12 @@
           <li><%= link_to company.name, company_path(company) %></li>
         <% end %>
       </ul>
+    <h2>Submitted Ceo's:</h2>
+      <ul>
+        <% @user.ceos.each do |ceo| %>
+          <li><%= link_to ceo.name, ceo_path(ceo) %></li>
+        <% end %>
+      </ul>
   </div>
   <div class="col-md-6">
     <h2>Hello, <strong><%= @user.name %>!</strong></h2>

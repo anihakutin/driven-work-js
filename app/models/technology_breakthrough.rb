@@ -16,4 +16,9 @@ class TechnologyBreakthrough < ApplicationRecord
   def user
     self.company.user
   end
+
+
+  def self.count
+    self.all.count
+  end
 end
