@@ -3,6 +3,7 @@ class TechnologyBreakthroughsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show, :new]
 
   def index
+    # check if routes are nested
     @technology_breakthroughs = TechnologyBreakthrough.all
   end
 
@@ -12,7 +13,7 @@ class TechnologyBreakthroughsController < ApplicationController
   end
 
   def create
-    @technology_breakthrough = TechnologyBreakthrough.new(user_params)
+    @technology_breakthrough = TechnologyBreakthrough.new(technology_breakthrough_params)
 
     if @technology_breakthrough.save
       redirect_to company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough)
@@ -34,17 +35,17 @@ class TechnologyBreakthroughsController < ApplicationController
   def update
     company = Company.find_by(id: params[:company_id]) or render_404
     @technology_breakthrough = company.technology_breakthroughs.find_by(id: params[:id]) or render_404
-    @technology_breakthrough.update(user_params)
+    @technology_breakthrough.update(technology_breakthrough_params)
 
     redirect_to company_technology_breakthrough_path(@technology_breakthrough.company, @technology_breakthrough)
   end
 
   def destroy
-    
+
   end
 
   private
-    def user_params
+    def technology_breakthrough_params
       params.require(:technology_breakthrough).permit(:name, :description, :year, :company_id)
     end
 end
