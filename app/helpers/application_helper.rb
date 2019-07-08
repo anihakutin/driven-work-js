@@ -29,4 +29,16 @@ module ApplicationHelper
 
     errors.join(",")
   end
+
+  def logged_in_user_link
+    link_to "Hello, #{current_user.name}", user_path(current_user), class: "navbar-brand" if logged_in?
+  end
+
+  def login_link
+    link_to "Login or Sign Up", new_user_path if !logged_in?
+  end
+
+  def logout_link
+    link_to "Log Out", logout_path, :method => :post if logged_in?
+  end
 end

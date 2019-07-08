@@ -10,32 +10,32 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="navbar-brand">
-             <strong><%= link_to "Hello, #{current_user.name}", user_path(current_user) if logged_in? %></strong>
-          </div>
-        <a class="navbar-brand" href="<%= root_url %>">Home</a>
-        <%= link_to "View Problems", problems_path, class: "navbar-brand" %>
-        <%= link_to "View Technology Breakthroughs", technology_breakthroughs_path, class: "navbar-brand" %>
-        <%= link_to "View Ceo's", ceos_path, class: "navbar-brand" %>
-        <%= link_to "Add Company", new_company_path, class: "navbar-brand" %>
-        <a class="navbar-brand" href="<%= new_user_path %>">Login or Sign Up </a>
-        <%= link_to "Log Out", logout_path, :method => :post, class: "navbar-brand" %>
-
+          <%= logged_in_user_link %>
         </div>
-        <div class="navbar-collapse collapse">
-
-        </div><!--/.nav-collapse -->
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Home", root_url %></li>
+            <li><%= link_to "View Problems", problems_path %></li>
+            <li><%= link_to "View Technology Breakthroughs", technology_breakthroughs_path %></li>
+            <li><%= link_to "View Ceo's", ceos_path %></li>
+            <li><%= link_to "Add Company", new_company_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= login_link %></li>
+            <li><%= logout_link %></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
+
     <div class="container">
       <div class="col-md-8">
           <%= yield %>
