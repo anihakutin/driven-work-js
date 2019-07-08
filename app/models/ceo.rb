@@ -13,7 +13,7 @@ class Ceo < ApplicationRecord
   end
 
   def problems_solved
-    problems.where('year_solved != ?', 0).count
+    problems.solved.size
   end
 
   def age
