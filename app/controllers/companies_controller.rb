@@ -3,7 +3,12 @@ class CompaniesController < ApplicationController
   skip_before_action :require_login, only: [:index, :show, :new]
 
   def index
-    @companies = Company.all
+    companies = Company.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: companies }
+    end
+
   end
 
   def new
