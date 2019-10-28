@@ -10,27 +10,17 @@
 </ol>
 
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
-    let companyList = [];
+  fetch('/companies.json')
+  .then(response => response.json())
+  .then(json => updateList(json));
 
-    let xhr = new XMLHttpRequest(),
-        method = "GET",
-        url = "/companies.json";
+  function updateList (array) {
+    const list = document.getElementById("companies");
 
-    xhr.open(method, url, true);
-    xhr.onreadystatechange = function () {
-      console.log(xhr.response);
-      var data = JSON.parse(xhr.response);
-      data.forEach(function (company) {
-        companyList.push(
-          new Company(company.id, company.name, company.description, company.user_id)
-        )
-      })
-
-    }
-    xhr.send();
-    companyList.join(" ");
-    let list = document.getElementById("companies");
-    list.innerText = companyList;
-  })
+    array.forEach( company => {
+      const companyObj = new Company(company.id, company.name, company.description, company.user.id, company.user.name, company.numOfBreakthroughs);
+      list.innerHTML += (companyObj.listItem());
+      
+    });
+  }
 </script>
