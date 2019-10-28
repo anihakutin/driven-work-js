@@ -10,17 +10,19 @@
 </ol>
 
 <script type="text/javascript">
-  fetch('/companies.json')
-  .then(response => response.json())
-  .then(json => updateList(json));
+  document.addEventListener('DOMContentLoaded', function () {
+    fetch('/companies.json')
+    .then(response => response.json())
+    .then(json => updateList(json));
 
-  function updateList (array) {
-    const list = document.getElementById("companies");
+    function updateList (array) {
+      const list = document.getElementById("companies");
 
-    array.forEach( company => {
-      const companyObj = new Company(company.id, company.name, company.description, company.user.id, company.user.name, company.numOfBreakthroughs);
-      list.innerHTML += (companyObj.listItem());
-      
-    });
-  }
+      array.forEach( company => {
+        const companyObj = new Company(company.id, company.name, company.description, (company.user == null ? null : company.user.id), ((company.user == null ? null : company.user.name)), company.numOfBreakthroughs);
+        list.innerHTML += (companyObj.indexPageListItem());
+
+      });
+    }
+  })
 </script>
