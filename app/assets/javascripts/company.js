@@ -8,8 +8,19 @@ class Company {
     this.numOfBreakthroughs = numOfBreakthroughs;
   }
 
-  listItem () {
-    return `<li> <a href=/companies/${this.id}>${this.name} - Major Breakthroughs: ${this.numOfBreakthroughs}</a></li>
-            <p>by <a href=/users/${this.authorId}>${this.authorName}</a></p>`
+  indexPageListItem () {
+    let html = "";
+
+     html += `<li> <a href=/companies/${this.id}>${this.name} - Major Breakthroughs: ${this.numOfBreakthroughs}</a></li>`
+     if (this.authorId !== null) {
+      html += `<p>by <a href=/users/${this.authorId}>${this.authorName}</a></p>`
+     } else {
+       html += "<p>by N/A</p>"
+     }
+    return html;
+  }
+
+  showPageListItem () {
+    return `<li> <a href=/companies/${this.id}>${this.name}</a></li>`
   }
 }
