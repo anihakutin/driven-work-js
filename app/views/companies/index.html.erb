@@ -1,27 +1,21 @@
 <h1>Companies</h1>
 <p><%= display_errors(@companies) %></p>
 <ol id="companies">
-  <% if false %>
-    <% @companies.each do |company| %>
-      <li><%= link_to company.name, company %> - Major Breakthroughs: <%= company.technology_breakthroughs_count %></li>
-      <p>by <%= author_link(company) %></p>
-    <% end %>
-  <% end %>
+
 </ol>
 
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', () => {
     fetch('/companies.json')
     .then(response => response.json())
     .then(json => updateList(json));
 
-    function updateList (array) {
+    let updateList = (json) => {
       const list = document.getElementById("companies");
 
-      array.forEach( company => {
+      json.forEach( company => {
         const companyObj = new Company(company.id, company.name, company.description, (company.user == null ? null : company.user.id), ((company.user == null ? null : company.user.name)), company.numOfBreakthroughs);
         list.innerHTML += (companyObj.indexPageListItem());
-
       });
     }
   })

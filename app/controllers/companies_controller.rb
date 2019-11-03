@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
       format.html { render :index }
       format.json { render json: companies }
     end
-
   end
 
   def new
