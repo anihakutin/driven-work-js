@@ -1,4 +1,5 @@
 module UsersHelper
+
   def current_user_level(user)
     return "ADMIN" if user.admin?
 

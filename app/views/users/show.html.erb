@@ -1,22 +1,86 @@
 <div class="container">
   <div class="col-md-6">
     <h2>Submitted Companies:</h2>
-      <ul>
-        <% @user.companies.each do |company| %>
-          <li><%= link_to company.name, company_path(company) %></li>
-        <% end %>
+      <ul id="companyList">
       </ul>
     <h2>Submitted Ceo's:</h2>
-      <ul>
-        <% @user.ceos.each do |ceo| %>
-          <li><%= link_to ceo.name, ceo_path(ceo) %></li>
-        <% end %>
+      <ul id="ceoList">
       </ul>
   </div>
-  <div class="col-md-6">
-    <h2>Hello, <strong><%= @user.name %>!</strong></h2>
-    <h4>User Level: <strong><%= current_user_level(@user) %></strong></h4>
-    <p><%= current_user_edit_link(@user) %></p>
-    <p><%= current_user_delete_link(@user) %></p>
+  <div class="col-md-6" id="userInfoSection">
+
+    <input type="hidden" id="uId" name="uId" value="<%= @user.id %>">
+
+    </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    loadPage();
+  })
+
+  function loadPage () {
+    let pathArray = window.location.pathname.split('/');
+    let userId = pathArray[pathArray.length - 1];
+
+    fetch(`/users/${userId}.json`)
+    .then(response => response.json())
+    .then(json => buildPage(json));
+  }
+
+  function buildPage (json) {
+    let companyList = document.getElementById("companyList");
+    let ceoList = document.getElementById("ceoList");
+    let userInfoSection = document.getElementById("userInfoSection");
+
+    companyList.innerHTML = "";
+    json.companies.forEach( company => {
+      const companyObj = new Company(company.id, company.name, company.description,
+                                    (company.user == null ? null : company.user.id),
+                                    (company.user == null ? null : company.user.name),
+                                    company.numOfBreakthroughs);
+      companyList.innerHTML += companyObj.showPageListItem();
+    });
+
+    ceoList.innerHTML = "";
+    json.ceos.forEach( ceo => {
+      const ceoObj = new Ceo(ceo.id, ceo.name);
+
+      ceoList.innerHTML += ceoObj.showPageListItem();
+    });
+
+    const userObj = new User(json.id, json.name, json.email, json.level, json.editLink);
+    userInfoSection.innerHTML = userObj.userProfile();
+
+    let btnPrev = document.getElementById("btnPrev").addEventListener('click', event => {
+      event.preventDefault();
+      let path = event.target.href.split('/')
+      let userId = parseInt(path[path.length - 1]);
+
+      fetch(`/users/${userId}.json`)
+      .then(response => response.json())
+      .then(json => buildPage(json));
+      // let path = event.target.href.split('/')
+      // let id = path[path.length - 1];
+      //
+      // window.location.pathname = `users/${id}`
+      // loadPage()
+    });
+    let btnNext = document.getElementById("btnNext").addEventListener('click', event => {
+      event.preventDefault();
+      let path = event.target.href.split('/')
+      let userId = parseInt(path[path.length - 1]);
+
+      fetch(`/users/${userId}.json`)
+      .then(response => response.json())
+      .then(json => buildPage(json));
+      // let path = event.target.href.split('/')
+      // let id = path[path.length - 1];
+      //
+      // window.location.pathname = `users/${id}`
+      // loadPage()
+    });
+  };
+
+</script>
