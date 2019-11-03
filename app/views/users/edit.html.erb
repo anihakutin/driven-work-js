@@ -1,5 +1,5 @@
 <h1>Edit <% @user.name %></h1>
-<%= display_errors(@user) %>
+<%#display_errors(@user) %>
 
 <div class="form-group">
   <%= form_for @user do |f| %>
@@ -15,3 +15,45 @@
     <%= f.submit %>
   <% end %>
 </div>
+<br>
+
+<div id="userProfile">
+</div>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    let formEl = document.querySelector('form')
+      formEl.addEventListener('submit', event => {
+      event.preventDefault();
+
+      fetch('/users', {
+      method: 'PATCH',
+      body: JSON.stringify({ user: {
+          name: formEl.elements.user_name.value,
+          email: formEl.elements.user_email.value,
+          admin: formEl.elements.user_admin.value,
+        }, id: formEl.id.split("_").pop()
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': Rails.csrfToken()
+      },
+      credentials: 'same-origin'
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        let updatedInfo = document.getElementById("userProfile");
+        updatedInfo.innerHTML = `
+              <h4>Your Profile Has Been Updated Succesfully</h4>
+              <p><strong>New Name:</strong> ${data["name"]}</p>
+              <p><strong>New Email:</strong> ${data["email"]}</p>
+              <p><strong>New Level:</strong> ${data["level"]}</p>
+              `
+        document.getElementsByName('commit')[0].disabled = false;
+      });
+
+    })
+  })
+</script>

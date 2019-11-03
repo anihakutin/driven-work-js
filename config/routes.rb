@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   post   '/login',   to: 'sessions#create'
   post '/logout',  to: 'sessions#destroy'
-
+  patch '/users', to: 'users#update'
   resources :sessions
   resources :users
   resources :ceos
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/problems', to: 'problems#index'
   get '/technology_breakthroughs', to: 'technology_breakthroughs#index'
-  
+
   get '/auth/github/callback', to: 'sessions#create'
 
 end
