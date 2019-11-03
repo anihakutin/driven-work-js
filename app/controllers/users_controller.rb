@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id]) or render_404
     if @user && @user == current_user
       if @user.update(user_params)
-        redirect_to user_path(@user)
+        render json: @user, serializer: UserEditSerializer, status: 201
       else
         render :edit
       end
