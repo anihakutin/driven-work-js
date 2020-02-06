@@ -1,16 +1,13 @@
-# README
-
-View and List companies by the problems they solve.
-Example: “Tesla, Electric Cars, Solving Sustainable Energy.
-          CEO: Elon Musk, year founded, major breakthroughs”
-
-# Project name
-
+# Driven Work
 ![Twitter Follow](https://img.shields.io/twitter/follow/heshiebee?style=social)
 
 DrivenWork is a platform that allows you to list and organize companies by the problems they solve.
 
 I created this platform after getting this idea in my head if only there was a way to find jobs at companies organized by the problems they solved. Like any sensible person would do I purchased the domain and did nothing with it for a year.
+
+Example: 
+Tesla: Electric Cars, Solving Sustainable Energy.
+CEO: Elon Musk
 
 ## Prerequisites
 
