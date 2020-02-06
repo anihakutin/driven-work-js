@@ -13,7 +13,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Using Drivenwork.com
 
-Here is what you might find on the site when you search for "Electric Cars".
+Here is what you might find on the site when you search for "Electric Cars":
 
 ```
 "Tesla: Electric Cars, Solving Sustainable Energy.
