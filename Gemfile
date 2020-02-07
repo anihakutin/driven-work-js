@@ -37,7 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Omniauth for oauth2
 gem 'omniauth', '~> 1.9'
 # Use omniauth-github for github auth
-gem 'omniauth-github', '~> 1.3'
+# gem 'omniauth-github', '~> 1.3'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'figaro'
