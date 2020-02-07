@@ -1,28 +1,26 @@
-# README
+# Driven Work
+![Twitter Follow](https://img.shields.io/twitter/follow/heshiebee?style=social)
 
-View and List companies by the problems they solve.
-Example: “Tesla, Electric Cars, Solving Sustainable Energy.
-          CEO: Elon Musk, year founded, major breakthroughs”
+DrivenWork is a platform that allows you to list and organize companies by the problems they solve.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I created this platform after getting this idea in my head if only there was a way to find jobs at companies organized by the problems they solved. Like any sensible person would do I purchased the domain and did nothing with it for a year.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+Before you begin, ensure you have met the following requirements:
+<!--- These are just example requirements. Add, duplicate or remove as required --->
+* A web browser!
 
-* System dependencies
+## Using Drivenwork.com
 
-* Configuration
+Here is what you might find on the site when you search for "Electric Cars":
 
-* Database creation
+```
+"Tesla: Electric Cars, Solving Sustainable Energy.
+CEO: Elon Musk"
+```
+Find the problem your passionate about solving at https://drivenwork.com
 
-* Database initialization
+## Contact
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you want to contact me you can reach me at hbrody@hudsonend.com.
