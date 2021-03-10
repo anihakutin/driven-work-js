@@ -1,0 +1,6 @@
+<h1>Ceos Index</h1>
+<ul>
+  <% @ceos.each do |ceo| %>
+    <li><%= link_to ceo.name, ceo_path(ceo) %> - <%= pluralize(ceo.count_of_companies, 'Company') %> (<%= ceo.company_names unless ceo.company_names.nil? %>)</li>
+  <% end %>
+</ul>
